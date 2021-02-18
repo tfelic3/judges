@@ -1,0 +1,50 @@
+*{box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+.imgDiv{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.obamamug{
+    width: 5%;
+    height: auto;
+}
+
+
+.presidentHeader{
+    text-align: center;
+}
+#judge-selection{
+width: 80%;
+margin: 0 auto;
+}
+
+#judgeGroup{
+    float: left;
+}
+
+h3{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
+ #judgeText {
+    visibility: hidden;
+    width: 200px;
+    height: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
