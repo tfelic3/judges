@@ -8324,6 +8324,8 @@ const judges = [
 
 let judgeToolTip = document.getElementById("tooltip");
 
+let judgeCount = document.getElementById("judgeCount");
+
 
 // Creating div for each judge
 let judgeDiv = document.getElementById("judge-selection");
@@ -8334,6 +8336,7 @@ let judgeGroup = document.createElement('div');
 let judgeText = document.createElement('div');
 let judgeGavel = document.createElement("img");
 let toolTip = document.createElement('p');
+let courtName = document.createElement('p');
 let nominationDate = document.createElement('p');
 let judgeRace = document.createElement('p');
 let judgeGender = document.createElement('p');
@@ -8346,8 +8349,10 @@ nominationDate.id = "nominationDate";
 judgeGender.id = "judgeGender";
 judgeRace.id = "judgeRace";
 judgeBirthYear.id = "judgeBirthYear";
+courtName.id= "courtName";
 
 toolTip.textContent = judge.firstName +  ' ' +judge.lastName ;
+courtName.textContent = judge.courtName;
 judgeBirthYear.textContent = "Birthday: " + judge.birthYear;
 nominationDate.textContent = "Nomination: " + judge.nominationDate;
 judgeRace.textContent = "Race: "  + judge.race;
@@ -8364,13 +8369,15 @@ judgeGroup.style.height= "auto";
   judgeGroup.appendChild(judgeGavel);
   judgeGroup.appendChild(judgeText);
   judgeText.appendChild(toolTip);
+  judgeText.appendChild(courtName);
   judgeText.appendChild(nominationDate);
   judgeText.appendChild(judgeBirthYear);
   judgeText.appendChild(judgeRace);
   judgeText.appendChild(judgeGender);
-
+  
   judgeDiv.appendChild(judgeGroup)
-
+ 
+ 
   
 
 
@@ -8393,8 +8400,11 @@ judgeGroup.addEventListener('mouseout', e=>{
 
 })
   
- 
+
+
 });
+
+
 
 //Creating a searchbar
 
@@ -8402,19 +8412,40 @@ const searchBar = document.forms['searchJudge'].querySelector('input');
 searchBar.addEventListener('keyup', function(e){
 const term = e.target.value.toLowerCase();
 
+
 const judgeList= document.querySelectorAll('#judgeGroup');
+
+
 Array.from(judgeList).forEach(function(judge){
+  
+
   const name = judge.childNodes[1].textContent;
-  if(name.toLowerCase().indexOf(term) !=-1){
+  
+
+if(name.toLowerCase().indexOf(term) !=-1){
+      
     judge.style.display = 'block';
+  
+
   } else {
     judge.style.display= 'none';
   }
+ 
+  
+  
+  
+  
+})
+
+
 })
 
 
 
-})
+
+
+
+
 
 
 
